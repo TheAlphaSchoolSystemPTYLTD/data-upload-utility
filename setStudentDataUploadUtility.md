@@ -334,6 +334,13 @@
 	} 
 	```
 
+	`sms_flg` must be Y or N
+	```javascript
+	__invalid: {
+		"sms_flg": "sms_flg must be either Y or N"
+	} 
+	```
+
 	`resident_sts` exceed 3 characters
 	```javascript
 	__invalid: {
