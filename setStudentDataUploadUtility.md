@@ -97,7 +97,7 @@
         "sms_flg": "N",
         "STUD_CODE": "0010091",
         "religion": "LU",
-        "visa_subclass": "sub visa",
+        "visa_subclass": "subvis",
         "fte": 0.8,
         "prev_school": "STJ",
         "form_cls": "B",
