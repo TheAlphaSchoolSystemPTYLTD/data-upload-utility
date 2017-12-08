@@ -90,7 +90,7 @@
         "ceider": "DIDE",
         "usi": 1009110,
         "sud11_code": "ORG",
-        "e_mail": "bradley.fleming@tassweb.com.au",
+        "e_mail": "example@tassweb.com.au",
         "date_arrival": "02/07/2014",
         "sud22_text": "001256",
         "campus_code": "SE",
@@ -408,7 +408,7 @@
 
 	```javascript
 	{
-		"students": [
+	"students": [
 	      {
 	        "resident_sts": "PR",
 	        "sud28_bill": "My bill",
@@ -423,7 +423,7 @@
 	        "ceider": "DIDE",
 	        "usi": 1009110,
 	        "sud11_code": "ORG",
-	        "e_mail": "bradley.fleming@tassweb.com.au",
+	        "e_mail": "example@tassweb.com.au",
 	        "date_arrival": "02/07/2014",
 	        "sud22_text": "001256",
 	        "campus_code": "SE",
