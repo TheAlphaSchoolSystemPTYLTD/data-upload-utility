@@ -95,7 +95,7 @@
         "sud22_text": "001256",
         "campus_code": "SE",
         "sms_flg": "N",
-        "STUD_CODE": "0010091",
+        "stud_code": "0010091",
         "religion": "LU",
         "visa_subclass": "subvis",
         "fte": 0.8,
