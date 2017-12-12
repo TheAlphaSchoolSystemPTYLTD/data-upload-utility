@@ -131,10 +131,24 @@
 	}
 	```
 
+	`[field_name]` is not valid
+	```javascript
+	__invalid: {
+		"[field_name]": "'[field_name]' is not a valid field name"
+	}
+	```
+
 	`id` not supplied
 	```javascript
 	__invalid: {
 		"id": "Id is required for all rows."
+	}
+	```
+
+	`id` has a duplicate value
+	```javascript
+	__invalid: {
+		"id": "'fieldvalue' is a duplicate `id`"
 	}
 	```
 
