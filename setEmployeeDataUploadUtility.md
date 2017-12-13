@@ -1,0 +1,525 @@
+**setEmployeeDataUploadUtility**
+----
+	Returns "success" and a count of updated employees, or a structure of invalid validations "__invalid" belonging to employee(s).
+
+* **Version:**
+
+	2
+
+* **Method:**
+
+	`GET | POST`
+	
+*  **Params:**
+
+	**Required:**
+ 
+	`employees [array]` - Array of Employees to be updated
+
+	`id [string]` - Employee Code
+
+	**Optional:**
+	
+	`name_suffix [string]` - Name Suffix
+
+	`position_text [string]` - Position Text
+
+	`position_title [string]` - Position Title
+
+	`school_email [string]` - School Email (Non Teachers only)
+
+	`supervisor_code [string]` - Supervisor Code (Must be a valid employee code)
+
+	`supervisor2_code [string]` - Supervisor 2 Code (Must be a valid employee code)
+
+	`marital_stat_flag [string]` - Marital Status Flag (Must be a valid Marital Status)
+
+	`birth_date [date dd/mm/yyyy or yyyy-mm-dd]` - Birth Date
+
+	`driv_lic_text [string]` - Drivers Licence text
+
+	`add2_text [string]` - Address Line 2
+
+	`phone_h_text [string]` - Home Phone
+
+	`phone_w_text [string]` - Home Phone
+
+	`e_mail [string]` - Email
+
+	`nok_name_text [string]` - Next of Kin Name
+
+	`nok_relat_text [string]` - Next of Kin Relationship
+
+	`nok_add1_text [string]` - Next of Kin Address Line 1
+
+	`nok_add2_text [string]` - Next of Kin Address Line 2
+
+	`nok_city_text [string]` - Next of Kin City
+
+	`nok_state_text [string]` - Next of Kin State
+
+	`nok_post_code [string]` - Next of Kin Post Code
+
+	`nok_country_text [string]` - Next of Kin Country
+
+	`nok_phone_h_text [string]` - Next of Kin Home Phone
+
+	`nok_phone_w_text [string]` - Next of Kin Work Phone
+
+	`ceider [string]` - Ceider
+
+	**Conditional:**
+
+	`add1_text [string]` - Address Line 1. Where Payroll is enabled, if supplied length must be between 1 and 30 Characters
+
+	`city_text [string]` - City. Where Payroll is enabled, if supplied length must be between 1 and 20 Characters
+
+	`state_text [string]` - State text. Required if post_code or country_text is present. 
+							Where Payroll is enabled this field is required and valid values are 'QLD, NSW, VIC, TAS, SA, WA, NT, ACT, OTH'
+
+	`post_code [string]` - Post Code. Required if state_text or country_text is present.
+						   Where Payroll is enabled, this field is required and length must be between 1 and 10 Characters. Where state_code = 'OTH', this value must be '9999'
+
+	`country_text [string]` - Country. Required if state_text or post_code is present.
+							  Where Payroll is enabled: where state_code = 'OTH' this field is required.
+							  Where Payroll is enabled: where state_code != 'OTH' this field is required but must be empty.
+
+	`mob_phone [string]` - Mobile Phone. Required if sms_flg is present. Where sms_flg = 'Y' the length must be between 1 and 10
+
+	`sms_flg [string]` - SMS Flag (Y or N) Required if mob_phone is present. If supplied, length must be 1.
+
+
+* **Success Response:**
+
+	```javascript
+	"success": "You successfully saved 1 employee(s).",
+	"students": [
+      {
+        "supervisor_code": 1000016,
+        "nok_city_text": "DEERAGUN",
+        "COMPANYCODE": 10,
+        "nok_phone_w_text": "0833669988",
+        "position_title": "Operations Manager of Queensland",
+        "supervisor2_code": 1000035,
+        "nok_add2_text": "11 Test Ave",
+        "position_text": "Operations",
+        "add2_text": "10 Test Ave",
+        "birth_date": "01/01/1984",
+        "driv_lic_text": 123456789,
+        "post_code": 4818,
+        "id": 1000088,
+        "nok_post_code": 8215,
+        "ISPAYROLLENABLED": "YES",
+        "country_text": "",
+        "state_text": "QLD",
+        "nok_name_text": "Jane Bloggs",
+        "ceider": "ceid",
+        "city_text": "TOWNSVILLE",
+        "emp_code": 1000088,
+        "add1_text": "Unit 1",
+        "phone_h_text": "0745786258",
+        "e_mail": "tester@example.com",
+        "marital_stat_flag": "F",
+        "nok_phone_h_text": "0812345687",
+        "nok_add1_text": "Unit 2",
+        "sms_flg": "Y",
+        "phone_w_text": "0722556698",
+        "nok_state_text": "WA",
+        "nok_country_text": "BEL",
+        "mob_phone": "0400007725",
+        "name_suffix": "CertBus",
+        "nok_relat_text": "Wife"
+      }
+    ]
+	```
+ 
+* **Error Response:**
+
+	Date `[field_name]` not a valid date
+	```javascript
+	__invalid: {
+		"[field_name]": "Value is not a valid date."
+	}
+	```
+
+	`employees` not supplied
+	```javascript
+	__invalid: {
+		"employees": "'employees' is required"
+	}
+	```
+
+	`[field_name]` is not valid
+	```javascript
+	__invalid: {
+		"[field_name]": "'[field_name]' is not a valid field name"
+	}
+	```
+
+	`id` not supplied
+	```javascript
+	__invalid: {
+		"id": "Id is required for all rows."
+	}
+	```
+
+	`id` has a duplicate value
+	```javascript
+	__invalid: {
+		"id": "'fieldvalue' is a duplicate `id`"
+	}
+	```
+
+	`id` not a valid employee code
+	```javascript
+	__invalid: {
+		"id": "Invalid Employee Code"
+	}
+	```
+
+	`name_suffix` exceed 30 characters
+	```javascript
+	__invalid: {
+		"name_suffix": "The value for this field exceeds the length permitted (NN of 30)."
+	}
+	```
+
+	`position_text` exceed 20 characters
+	```javascript
+	__invalid: {
+		"position_text": "The value for this field exceeds the length permitted (NN of 20)."
+	}
+	```
+
+	`position_title` exceed 100 characters
+	```javascript
+	__invalid: {
+		"position_title": "The value for this field exceeds the length permitted (NN of 100)."
+	}
+	```
+
+	`school_email` exceed 60 characters
+	```javascript
+	__invalid: {
+		"school_email": "The value for this field exceeds the length permitted (NN of 60)."
+	}
+	```
+
+	`supervisor_code` exceed 7 characters
+	```javascript
+	__invalid: {
+		"supervisor_code": "The value for this field exceeds the length permitted (NN of 7)."
+	}
+	```
+
+	`supervisor2_code` exceed 7 characters
+	```javascript
+	__invalid: {
+		"supervisor2_code": "The value for this field exceeds the length permitted (NN of 7)."
+	}
+	```
+
+	`marital_stat_flag` exceed 1 characters
+	```javascript
+	__invalid: {
+		"marital_stat_flag": "The value for this field exceeds the length permitted (NN of 1)."
+	}
+	```
+
+	`add1_text` exceed 30 characters
+	```javascript
+	__invalid: {
+		"add1_text": "The value for this field exceeds the length permitted (NN of 30)."
+	}
+	```
+
+	`add2_text` exceed 30 characters
+	```javascript
+	__invalid: {
+		"add2_text": "The value for this field exceeds the length permitted (NN of 30)."
+	}
+	```
+
+	`city_text` exceed 20 characters
+	```javascript
+	__invalid: {
+		"city_text": "The value for this field exceeds the length permitted (NN of 20)."
+	}
+	```
+
+	`state_text` exceed 3 characters
+	```javascript
+	__invalid: {
+		"state_text": "The value for this field exceeds the length permitted (NN of 3)."
+	}
+	```
+
+	`state_text` is not of the following values where Payroll is enabled 'QLD, NSW, VIC, TAS, SA, WA, NT, ACT, OTH'
+	```javascript
+	__invalid: {
+		"state_text": "state_text is invalid"
+	}
+	```
+
+	`state_text` or `post_code` or `country_text` is not supplied where at least one is present
+	```javascript
+	__invalid: {
+		"state_text": "state_text is required if post_code or country_text are present"
+	} 
+	```
+
+	`state_text` or `post_code` or `country_text` is not supplied where at least one is present
+	```javascript
+	__invalid: {
+		"post_code": "post_code is required if state_code or country_text are present"
+	} 
+	```
+
+	`state_text` or `post_code` or `country_text` is not supplied where at least one is present
+	```javascript
+	__invalid: {
+		"country_text": "country_text is required if post_code or state_code are present"
+	} 
+	```
+
+	`post_code` exceed 10 characters
+	```javascript
+	__invalid: {
+		"post_code": "The value for this field exceeds the length permitted (NN of 10)."
+	}
+	```
+
+	`post_code` is required where Payroll is enabled. If state_code = 'OTH' then post_code must be '9999'
+	```javascript
+	__invalid: {
+		"post_code": "post_code must be 9999 when state_code is OTH."
+	}
+	```
+
+	`country_text` exceed 20 characters
+	```javascript
+	__invalid: {
+		"country_text": "The value for this field exceeds the length permitted (NN of 20)."
+	}
+	```
+
+	`country_text` is required where Payroll is enabled and state_code is 'OTH'
+	```javascript
+	__invalid: {
+		"country_text": "country_text cannot be empty or Australia when state_code is OTH."
+	}
+	```
+
+	`country_text` is required where Payroll is enabled and state_code is not 'OTH'
+	```javascript
+	__invalid: {
+		"country_text": "country_text must be empty"
+	}
+	```
+
+	`phone_h_text` exceed 30 characters
+	```javascript
+	__invalid: {
+		"phone_h_text": "The value for this field exceeds the length permitted (NN of 30)."
+	}
+	```
+
+	`phone_w_text` exceed 30 characters
+	```javascript
+	__invalid: {
+		"phone_w_text": "The value for this field exceeds the length permitted (NN of 30)."
+	}
+	```
+
+	`mob_phone` exceed 30 characters
+	```javascript
+	__invalid: {
+		"mob_phone": "The value for this field exceeds the length permitted (NN of 30)."
+	}
+	```
+
+	`sms_flg` exceed 1 characters
+	```javascript
+	__invalid: {
+		"sms_flg": "The value for this field exceeds the length permitted (NN of 1)."
+	}
+	```
+
+	`nok_name_text` exceed 30 characters
+	```javascript
+	__invalid: {
+		"nok_name_text": "The value for this field exceeds the length permitted (NN of 30)."
+	}
+	```
+
+	`nok_relat_text` exceed 20 characters
+	```javascript
+	__invalid: {
+		"nok_relat_text": "The value for this field exceeds the length permitted (NN of 20)."
+	}
+	```
+
+	`nok_add1_text` exceed 30 characters
+	```javascript
+	__invalid: {
+		"nok_add1_text": "The value for this field exceeds the length permitted (NN of 30)."
+	}
+	```
+
+	`nok_add2_text` exceed 30 characters
+	```javascript
+	__invalid: {
+		"nok_add2_text": "The value for this field exceeds the length permitted (NN of 30)."
+	}
+	```
+
+	`nok_city_text` exceed 20 characters
+	```javascript
+	__invalid: {
+		"nok_city_text": "The value for this field exceeds the length permitted (NN of 20)."
+	}
+	```
+
+	`nok_state_text` exceed 3 characters
+	```javascript
+	__invalid: {
+		"nok_state_text": "The value for this field exceeds the length permitted (NN of 3)."
+	}
+	```
+
+	`nok_post_code` exceed 10 characters
+	```javascript
+	__invalid: {
+		"nok_post_code": "The value for this field exceeds the length permitted (NN of 10)."
+	}
+	```
+
+	`nok_country_text` exceed 20 characters
+	```javascript
+	__invalid: {
+		"nok_country_text": "The value for this field exceeds the length permitted (NN of 20)."
+	}
+	```
+
+	`nok_phone_h_text` exceed 30 characters
+	```javascript
+	__invalid: {
+		"nok_phone_h_text": "The value for this field exceeds the length permitted (NN of 30)."
+	}
+	```
+
+	`nok_phone_w_text` exceed 30 characters
+	```javascript
+	__invalid: {
+		"nok_phone_w_text": "The value for this field exceeds the length permitted (NN of 30)."
+	}
+	```
+
+	`ceider` exceed 9 characters
+	```javascript
+	__invalid: {
+		"ceider": "The value for this field exceeds the length permitted (NN of 9)."
+	}
+	```
+
+	`marital_stat_flag` does not exist in the database
+	```javascript
+	__invalid: {
+		"marital_stat_flag": "marital_stat_flag does not exist"
+	} 
+	```
+
+	`e_mail` not in the correct format
+	```javascript
+	__invalid: {
+		"e_mail": "e_mail is not valid"
+	} 
+	```
+
+	`e_mail` exceed 60 characters
+	```javascript
+	__invalid: {
+		"e_mail": "The value for this field exceeds the length permitted (NN of 60)."
+	}
+	```
+
+	`mob_phone` or `sms_flg` is not supplied
+	```javascript
+	__invalid: {
+		"mob_phone": "mob_phone and sms_flg must be submitted together"
+	} 
+	```
+
+	`mob_phone` is not valid (where sms_flg = 'Y')
+	```javascript
+	__invalid: {
+		"mob_phone": "mob_phone is not valid"
+	} 
+	```
+
+	`sms_flg` must be Y or N
+	```javascript
+	__invalid: {
+		"sms_flg": "sms_flg must be either Y or N"
+	} 
+	```
+
+* **Sample Parameters:**
+
+	```javascript
+	{
+		"employees": [
+			{
+				"id": "1000088",
+				"name_suffix":"CertBus",
+				"position_text":"Operations",
+				"position_title":"Operations Manager of Queensland",
+				"supervisor_code":"1000016",
+				"supervisor2_code":"1000035",
+				"marital_stat_flag":"F",
+				"birth_date":"01/01/1984",
+				"driv_lic_text":"123456789",
+				"add1_text":"Unit 1",
+				"add2_text":"10 Test Ave",
+				"city_text":"Townsville",
+				"state_text":"QLD",
+				"post_code":"4818",
+				"country_text":"",
+				"phone_h_text":"0745786258",
+				"phone_w_text":"0722556698",
+				"e_mail":"tester@example.com",
+				"mob_phone":"0400007725",
+				"sms_flg":"Y",
+				"nok_name_text":"Jane Bloggs",
+				"nok_relat_text":"Wife",
+				"nok_add1_text":"Unit 2",
+				"nok_add2_text":"11 Test Ave",
+				"nok_city_text":"Deeragun",
+				"nok_state_text":"WA",
+				"nok_post_code":"8215",
+				"nok_country_text":"BEL",
+				"nok_phone_h_text":"0812345687",
+				"nok_phone_w_text":"0833669988",
+				"ceider":"ceid"
+			}
+		]
+	}
+	```
+
+* **Sample GET:** (With URL Encoded `token`)
+
+	```HTML
+	http://api.tasscloud.com.au/tassweb/api/?method=SetEmployeeDataUploadUtility&appcode=DEMOAP&company=10&v=2&token=BJVvYXC0We4Dtvp6Q49RqhBeAi6uqpTQ9t%2FKI9ZAFpCMeVXIFlDU5yNQIeYME%2BYLXgYA69RTUjXjLeVBetN6CaFMdPCKMWBXD%2Bkkt0%2Fuht0suYrSDONP6mx%2Fbt4WGgNOD5YoIYRNiIVDw2Qn2Oi5YodaEUgtGJohUJMzy3tqsX%2BraZk3j7d77okDCjb7MeFJ0DcupqUoRiGjE39415HTfPgNc6R6BY9wt7SJsj4yOPBrIxHQVS8Yy6gZ3nZgsJ5rhcdkB6eCI6b3FJ31s6vsVcbVu5NBY8AF1qqjWLMazduISzEBwRDsofXfJjo1KLX59R410bmbrF5Z7QZfEfE%2FlettTWOyb4EgdhBoC3v0aLOfF6Bt12AFXDo2VGbgryceeOLAscp%2FFr9ttH42hClBtWsxFU1N5dDENUsVHOwWcfCxd7aTtc0xjvaEYJWcZrRRZa1yrIvgeWaDk0LVxM5ePcT%2BltdrymgmxmZYgxdiYC1qQDcNXDx9hN7yKeZDUztwGA0yl2iXW8aBXAy5hRnztR0TrREyOba26mUHxUJO7tfpIyOrpPbE0nR18vtCZ%2BinbvyqN9adpZhQPByG2XD9M6MoYdmBCc3Duv9qb%2BIa0A8%3D
+	```
+	
+* **Sample POST:**
+
+	```HTML
+	<form id="postForm" name="postForm" method="POST" action="http://api.tasscloud.com.au/tassweb/api/">
+		 <input type="hidden" name="method" value="setEmployeeDataUploadUtility">
+		 <input type="hidden" name="appcode" value="DEMOAP">
+		 <input type="hidden" name="company" value="10">
+		 <input type="hidden" name="v" value="2">
+		 <textarea name="token">BJVvYXC0We4Dtvp6Q49RqhBeAi6uqpTQ9t/KI9ZAFpCMeVXIFlDU5yNQIeYME+YLXgYA69RTUjXjLeVBetN6CaFMdPCKMWBXD+kkt0/uht0suYrSDONP6mx/bt4WGgNOD5YoIYRNiIVDw2Qn2Oi5YodaEUgtGJohUJMzy3tqsX+raZk3j7d77okDCjb7MeFJ0DcupqUoRiGjE39415HTfPgNc6R6BY9wt7SJsj4yOPBrIxHQVS8Yy6gZ3nZgsJ5rhcdkB6eCI6b3FJ31s6vsVcbVu5NBY8AF1qqjWLMazduISzEBwRDsofXfJjo1KLX59R410bmbrF5Z7QZfEfE/lettTWOyb4EgdhBoC3v0aLOfF6Bt12AFXDo2VGbgryceeOLAscp/Fr9ttH42hClBtWsxFU1N5dDENUsVHOwWcfCxd7aTtc0xjvaEYJWcZrRRZa1yrIvgeWaDk0LVxM5ePcT+ltdrymgmxmZYgxdiYC1qQDcNXDx9hN7yKeZDUztwGA0yl2iXW8aBXAy5hRnztR0TrREyOba26mUHxUJO7tfpIyOrpPbE0nR18vtCZ+inbvyqN9adpZhQPByG2XD9M6MoYdmBCc3Duv9qb+Ia0A8=</textarea>
+	</form>
+	```
