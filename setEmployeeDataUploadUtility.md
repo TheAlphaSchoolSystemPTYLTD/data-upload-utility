@@ -212,10 +212,38 @@
 	}
 	```
 
+	`supervisor_code` is the same as the updating employee
+	```javascript
+	__invalid: {
+		"supervisor_code": "An employee cannot be their own supervisor."
+	}
+	```
+
+	`supervisor_code` and `supervisor2_code` are the same
+	```javascript
+	__invalid: {
+		"supervisor_code": "supervisor_code and supervisor2_code must not be identical."
+	}
+	```
+
+	`supervisor_code` is empty where supervisor2_code is set
+	```javascript
+	__invalid: {
+		"supervisor_code": "supervisor_code cannot be blank where the supervisor2_code is used."
+	}
+	```
+
 	`supervisor2_code` exceed 7 characters
 	```javascript
 	__invalid: {
 		"supervisor2_code": "The value for this field exceeds the length permitted (NN of 7)."
+	}
+	```
+
+	`supervisor2_code` is the same as the updating employee
+	```javascript
+	__invalid: {
+		"supervisor2_code": "An employee cannot be their own supervisor."
 	}
 	```
 
