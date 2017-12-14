@@ -226,7 +226,7 @@
 	}
 	```
 
-	`supervisor_code` is empty where supervisor2_code is set
+	`supervisor_code` is empty where supervisor2_code is set OR supervisor2_code is empty in the database
 	```javascript
 	__invalid: {
 		"supervisor_code": "supervisor_code cannot be blank where the supervisor2_code is used."
