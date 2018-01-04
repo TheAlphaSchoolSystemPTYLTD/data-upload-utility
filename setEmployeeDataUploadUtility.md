@@ -205,6 +205,20 @@
 	}
 	```
 
+	`school_email` set for a Non Teacher
+	```javascript
+	__invalid: {
+		"school_email": "'school_email' is allowed for Non Teachers only"
+	}
+	```
+
+	`school_email` not in the correct format
+	```javascript
+	__invalid: {
+		"school_email": "'school_email' is not valid"
+	}
+	```
+
 	`supervisor_code` exceed 7 characters
 	```javascript
 	__invalid: {
