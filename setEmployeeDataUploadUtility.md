@@ -180,28 +180,28 @@
 	`name_suffix` exceed 30 characters
 	```javascript
 	__invalid: {
-		"name_suffix": "The value for this field exceeds the length permitted (NN of 30)."
+		"name_suffix": "exceeds 30 characters."
 	}
 	```
 
 	`position_text` exceed 20 characters
 	```javascript
 	__invalid: {
-		"position_text": "The value for this field exceeds the length permitted (NN of 20)."
+		"position_text": "exceeds 20 characters."
 	}
 	```
 
 	`position_title` exceed 100 characters
 	```javascript
 	__invalid: {
-		"position_title": "The value for this field exceeds the length permitted (NN of 100)."
+		"position_title": "exceeds 100 characters."
 	}
 	```
 
 	`school_email` exceed 60 characters
 	```javascript
 	__invalid: {
-		"school_email": "The value for this field exceeds the length permitted (NN of 60)."
+		"school_email": "exceeds 60 characters."
 	}
 	```
 
@@ -222,7 +222,7 @@
 	`supervisor_code` exceed 7 characters
 	```javascript
 	__invalid: {
-		"supervisor_code": "The value for this field exceeds the length permitted (NN of 7)."
+		"supervisor_code": "exceeds 7 characters."
 	}
 	```
 
@@ -250,7 +250,7 @@
 	`supervisor2_code` exceed 7 characters
 	```javascript
 	__invalid: {
-		"supervisor2_code": "The value for this field exceeds the length permitted (NN of 7)."
+		"supervisor2_code": "exceeds 7 characters."
 	}
 	```
 
@@ -264,35 +264,35 @@
 	`marital_stat_flag` exceed 1 characters
 	```javascript
 	__invalid: {
-		"marital_stat_flag": "The value for this field exceeds the length permitted (NN of 1)."
+		"marital_stat_flag": "exceeds 1 characters."
 	}
 	```
 
 	`add1_text` exceed 30 characters
 	```javascript
 	__invalid: {
-		"add1_text": "The value for this field exceeds the length permitted (NN of 30)."
+		"add1_text": "exceeds 30 characters."
 	}
 	```
 
 	`add2_text` exceed 30 characters
 	```javascript
 	__invalid: {
-		"add2_text": "The value for this field exceeds the length permitted (NN of 30)."
+		"add2_text": "exceeds 30 characters."
 	}
 	```
 
 	`city_text` exceed 20 characters
 	```javascript
 	__invalid: {
-		"city_text": "The value for this field exceeds the length permitted (NN of 20)."
+		"city_text": "exceeds 20 characters."
 	}
 	```
 
 	`state_text` exceed 3 characters
 	```javascript
 	__invalid: {
-		"state_text": "The value for this field exceeds the length permitted (NN of 3)."
+		"state_text": "exceeds 3 characters."
 	}
 	```
 
@@ -327,7 +327,7 @@
 	`post_code` exceed 10 characters
 	```javascript
 	__invalid: {
-		"post_code": "The value for this field exceeds the length permitted (NN of 10)."
+		"post_code": "exceeds 10 characters."
 	}
 	```
 
@@ -341,7 +341,7 @@
 	`country_text` exceed 20 characters
 	```javascript
 	__invalid: {
-		"country_text": "The value for this field exceeds the length permitted (NN of 20)."
+		"country_text": "exceeds 20 characters."
 	}
 	```
 
@@ -362,105 +362,105 @@
 	`phone_h_text` exceed 30 characters
 	```javascript
 	__invalid: {
-		"phone_h_text": "The value for this field exceeds the length permitted (NN of 30)."
+		"phone_h_text": "exceeds 30 characters."
 	}
 	```
 
 	`phone_w_text` exceed 30 characters
 	```javascript
 	__invalid: {
-		"phone_w_text": "The value for this field exceeds the length permitted (NN of 30)."
+		"phone_w_text": "exceeds 30 characters."
 	}
 	```
 
 	`mob_phone` exceed 30 characters
 	```javascript
 	__invalid: {
-		"mob_phone": "The value for this field exceeds the length permitted (NN of 30)."
+		"mob_phone": "exceeds 30 characters."
 	}
 	```
 
 	`sms_flg` exceed 1 characters
 	```javascript
 	__invalid: {
-		"sms_flg": "The value for this field exceeds the length permitted (NN of 1)."
+		"sms_flg": "exceeds 1 characters."
 	}
 	```
 
 	`nok_name_text` exceed 30 characters
 	```javascript
 	__invalid: {
-		"nok_name_text": "The value for this field exceeds the length permitted (NN of 30)."
+		"nok_name_text": "exceeds 30 characters."
 	}
 	```
 
 	`nok_relat_text` exceed 20 characters
 	```javascript
 	__invalid: {
-		"nok_relat_text": "The value for this field exceeds the length permitted (NN of 20)."
+		"nok_relat_text": "exceeds 20 characters."
 	}
 	```
 
 	`nok_add1_text` exceed 30 characters
 	```javascript
 	__invalid: {
-		"nok_add1_text": "The value for this field exceeds the length permitted (NN of 30)."
+		"nok_add1_text": "exceeds 30 characters."
 	}
 	```
 
 	`nok_add2_text` exceed 30 characters
 	```javascript
 	__invalid: {
-		"nok_add2_text": "The value for this field exceeds the length permitted (NN of 30)."
+		"nok_add2_text": "exceeds 30 characters."
 	}
 	```
 
 	`nok_city_text` exceed 20 characters
 	```javascript
 	__invalid: {
-		"nok_city_text": "The value for this field exceeds the length permitted (NN of 20)."
+		"nok_city_text": "exceeds 20 characters."
 	}
 	```
 
 	`nok_state_text` exceed 3 characters
 	```javascript
 	__invalid: {
-		"nok_state_text": "The value for this field exceeds the length permitted (NN of 3)."
+		"nok_state_text": "exceeds 3 characters."
 	}
 	```
 
 	`nok_post_code` exceed 10 characters
 	```javascript
 	__invalid: {
-		"nok_post_code": "The value for this field exceeds the length permitted (NN of 10)."
+		"nok_post_code": "exceeds 10 characters."
 	}
 	```
 
 	`nok_country_text` exceed 20 characters
 	```javascript
 	__invalid: {
-		"nok_country_text": "The value for this field exceeds the length permitted (NN of 20)."
+		"nok_country_text": "exceeds 20 characters."
 	}
 	```
 
 	`nok_phone_h_text` exceed 30 characters
 	```javascript
 	__invalid: {
-		"nok_phone_h_text": "The value for this field exceeds the length permitted (NN of 30)."
+		"nok_phone_h_text": "exceeds 30 characters."
 	}
 	```
 
 	`nok_phone_w_text` exceed 30 characters
 	```javascript
 	__invalid: {
-		"nok_phone_w_text": "The value for this field exceeds the length permitted (NN of 30)."
+		"nok_phone_w_text": "exceeds 30 characters."
 	}
 	```
 
 	`ceider` exceed 9 characters
 	```javascript
 	__invalid: {
-		"ceider": "The value for this field exceeds the length permitted (NN of 9)."
+		"ceider": "exceeds 9 characters."
 	}
 	```
 
@@ -481,7 +481,7 @@
 	`e_mail` exceed 60 characters
 	```javascript
 	__invalid: {
-		"e_mail": "The value for this field exceeds the length permitted (NN of 60)."
+		"e_mail": "exceeds 60 characters."
 	}
 	```
 
