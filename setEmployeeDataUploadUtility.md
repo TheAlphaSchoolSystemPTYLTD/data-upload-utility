@@ -166,7 +166,7 @@
 	`id` has a duplicate value
 	```javascript
 	__invalid: {
-		"id": "'fieldvalue' is a duplicate `id`"
+		"employees":"Id must be unique for all rows."
 	}
 	```
 
@@ -181,6 +181,13 @@
 	```javascript
 	__invalid: {
 		"name_suffix": "exceeds 30 characters."
+	}
+	```
+
+	`driv_lic_text` exceed 10 characters
+	```javascript
+	__invalid: {
+		"driv_lic_text": "exceeds 10 characters."
 	}
 	```
 
