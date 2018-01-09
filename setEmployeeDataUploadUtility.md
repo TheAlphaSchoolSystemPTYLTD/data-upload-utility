@@ -247,10 +247,24 @@
 	}
 	```
 
-	`supervisor_code` is empty where supervisor2_code is set OR supervisor2_code is empty in the database
+	`supervisor_code` is not supplied where 'supervisor2_code' is set
 	```javascript
 	__invalid: {
-		"supervisor_code": "supervisor_code cannot be blank where the supervisor2_code is used."
+		"supervisor2_code": "supervisor_code' and 'supervisor2_code' must be submitted together"
+	}
+	```
+
+	`supervisor2_code` is not supplied where 'supervisor_code' is set
+	```javascript
+	__invalid: {
+		"supervisor_code": "supervisor_code' and 'supervisor2_code' must be submitted together"
+	}
+	```
+
+	`supervisor_code` is empty where supervisor2_code is set
+	```javascript
+	__invalid: {
+		"supervisor_code": "'supervisor_code' cannot be blank where the 'supervisor2_code' is used"
 	}
 	```
 
