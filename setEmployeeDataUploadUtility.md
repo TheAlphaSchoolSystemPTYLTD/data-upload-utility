@@ -28,10 +28,6 @@
 
 	`school_email [string]` - School Email (Non Teachers only)
 
-	`supervisor_code [string]` - Supervisor Code (Must be a valid employee code)
-
-	`supervisor2_code [string]` - Supervisor 2 Code (Must be a valid employee code)
-
 	`marital_stat_flag [string]` - Marital Status Flag (Must be a valid Marital Status)
 
 	`birth_date [date dd/mm/yyyy or yyyy-mm-dd]` - Birth Date
@@ -87,6 +83,10 @@
 	`mob_phone [string]` - Mobile Phone. Required if sms_flg is present. Where sms_flg = 'Y' the length must be between 1 and 10
 
 	`sms_flg [string]` - SMS Flag (Y or N) Required if mob_phone is present. If supplied, length must be 1.
+
+	`supervisor_code [string]` - Supervisor Code (Must be a valid employee code).  Required if supervisor2_code is present.
+
+	`supervisor2_code [string]` - Supervisor 2 Code (Must be a valid employee code).  Required if supervisor_code is present.
 
 
 * **Success Response:**
