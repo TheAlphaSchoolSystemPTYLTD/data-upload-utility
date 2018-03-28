@@ -66,19 +66,30 @@
 
 	**Conditional:**
 
-	`add1_text [string]` - Address Line 1. Where Payroll is enabled, if supplied length must be between 1 and 30 Characters
+	`add1_text [string]` - Address Line 1. Required if Payroll is enabled and it is an Australian School. If supplied length must be between 1 and 30 Characters.
 
-	`city_text [string]` - City. Where Payroll is enabled, if supplied length must be between 1 and 20 Characters
+	`city_text [string]` - City. Required if Payroll is enabled and it is an Australian School, if supplied length must be between 1 and 20 Characters.
 
-	`state_text [string]` - State text. Required if post_code or country_text is present. 
-							Where Payroll is enabled this field is required and valid values are 'QLD, NSW, VIC, TAS, SA, WA, NT, ACT, OTH'
+	`state_text [string]` - State text. Required if post_code or country_text/country_code is present. 
+	                        If supplied length must be between 1 and 3 Characters. 
+							Where Payroll is enabled and it is an Australian School and Single Touch Payroll is not enabled, this field is required and valid values are 'QLD, NSW, VIC, TAS, SA, WA, NT, ACT, OTH'
+							Where Single Touch Payroll is enabled, if Country is not specified this field is required and valid values are 'QLD, NSW, VIC, TAS, SA, WA, NT, ACT, AAT', otherwise if Country is not empty this field must be empty
 
-	`post_code [string]` - Post Code. Required if state_text or country_text is present.
-						   Where Payroll is enabled, this field is required and length must be between 1 and 10 Characters. Where state_code = 'OTH', this value must be '9999'
+	`post_code [string]` - Post Code. Required if state_text or country_text/country_code is present.
+	                       If supplied length must be between 1 and 10 Characters.
+						   Where Payroll is enabled and it is an Australian School and Single Touch Payroll is not enabled, this field is required and this value must be '9999' if state_code = 'OTH'
+						   Where Single Touch Payroll is enabled, if Country is not specified this field is required and must be a numeric value in the range 0200 to 9999, otherwise if Country is not empty this field must be empty
 
 	`country_text [string]` - Country. Required if state_text or post_code is present.
-							  Where Payroll is enabled: where state_code = 'OTH' this field is required.
-							  Where Payroll is enabled: where state_code != 'OTH' this field is required but must be empty.
+							  If supplied length must be between 1 and 20 Characters.
+							  This field will only be available when Single Touch Payroll is not enabled.
+							  Where Payroll is enabled and it is an Australian School: where state_code = 'OTH' this field is required.
+							  Where Payroll is enabled and it is an Australian School: where state_code != 'OTH' this field is required but must be empty.
+
+	`country_code [string]` - Country. Required if state_text or post_code is present.
+							  If supplied length must be between 1 and 2 Characters.
+							  This field will only be available when Single Touch Payroll is enabled.
+							  Where State text is empty, this field is required and must be a valid country code.
 
 	`mob_phone [string]` - Mobile Phone. Required if sms_flg is present. Where sms_flg = 'Y' the length must be between 1 and 10
 
@@ -296,6 +307,13 @@
 	}
 	```
 
+	`add1_text` not supplied where Payroll is enabled and it is an Australian school.
+	```javascript
+	__invalid: {
+		"add1_text": "add1_text is required"
+	}
+	```
+
 	`add2_text` exceed 30 characters
 	```javascript
 	__invalid: {
@@ -310,6 +328,13 @@
 	}
 	```
 
+	`city_text` not supplied where Payroll is enabled and it is an Australian school.
+	```javascript
+	__invalid: {
+		"city_text": "city_text is required"
+	}
+	```
+
 	`state_text` exceed 3 characters
 	```javascript
 	__invalid: {
@@ -317,7 +342,28 @@
 	}
 	```
 
-	`state_text` is not of the following values where Payroll is enabled 'QLD, NSW, VIC, TAS, SA, WA, NT, ACT, OTH'
+	`state_text` not supplied where Payroll is enabled and it is an Australian school and Single Touch Payroll is not enabled.
+	```javascript
+	__invalid: {
+		"state_text": "state_text is required"
+	}
+	```
+
+	`state_text` not supplied when Single Touch Payroll is enabled and Country is empty
+	```javascript
+	__invalid: {
+		"state_text": "state_text must be specified when country_code is empty"
+	}
+	```
+
+	`state_text` not empty when Single Touch Payroll is enabled and Country is not empty
+	```javascript
+	__invalid: {
+		"state_text": "state_text must be empty if country_code is specified"
+	}
+	```
+
+	`state_text` is not of the following values where Payroll is enabled and it is an Australian school and Single Touch Payroll is not enabled 'QLD, NSW, VIC, TAS, SA, WA, NT, ACT, OTH'
 	```javascript
 	__invalid: {
 		"state_text": "state_text is invalid"
@@ -352,10 +398,38 @@
 	}
 	```
 
-	`post_code` is required where Payroll is enabled. If state_code = 'OTH' then post_code must be '9999'
+	`post_code` not supplied where Payroll is enabled and it is an Australian school and Single Touch Payroll is not enabled.
+	```javascript
+	__invalid: {
+		"post_code": "post_code is required"
+	}
+	```
+
+	`post_code` not supplied when Single Touch Payroll is enabled and Country is empty
+	```javascript
+	__invalid: {
+		"post_code": "post_code must be specified when country_code is empty"
+	}
+	```
+
+	`post_code` not empty when Single Touch Payroll is enabled and Country is not empty
+	```javascript
+	__invalid: {
+		"post_code": "post_code must be empty if country_code is specified"
+	}
+	```
+
+	`post_code` is required where Payroll is enabled and it is an Australian school and Single Touch Payroll is not enabled. If state_code = 'OTH' then post_code must be '9999'
 	```javascript
 	__invalid: {
 		"post_code": "post_code must be 9999 when state_code is OTH."
+	}
+	```
+
+	`post_code` is required and must be a numeric value in the range 0200 to 9999 where Single Touch Payroll is enabled.
+	```javascript
+	__invalid: {
+		"post_code": "post_code must be a numeric value in the range 0200 to 9999."
 	}
 	```
 
@@ -366,17 +440,38 @@
 	}
 	```
 
-	`country_text` is required where Payroll is enabled and state_code is 'OTH'
+	`country_text` is required where Payroll is enabled and it is an Australian school and Single Touch Payroll is not enabled and state_code is 'OTH'
 	```javascript
 	__invalid: {
 		"country_text": "country_text cannot be empty or Australia when state_code is OTH."
 	}
 	```
 
-	`country_text` is required where Payroll is enabled and state_code is not 'OTH'
+	`country_text` is required where Payroll is enabled and it is an Australian school and Single Touch Payroll is not enabled and state_code is not 'OTH'
 	```javascript
 	__invalid: {
 		"country_text": "country_text must be empty"
+	}
+	```
+
+	`country_code` exceed 2 characters
+	```javascript
+	__invalid: {
+		"country_code": "exceeds 2 characters."
+	}
+	```
+
+	`country_code` is required when Single Touch Payroll is enabled and State text is empty
+	```javascript
+	__invalid: {
+		"country_code": "country_code must be specified if state_text is empty"
+	}
+	```
+
+	`country_code` is required and must be a valid country code when Single Touch Payroll is enabled and State text is empty
+	```javascript
+	__invalid: {
+		"country_code": "country_code is invalid"
 	}
 	```
 
