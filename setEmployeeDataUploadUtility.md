@@ -2,6 +2,12 @@
 ----
 	Returns "success" and a count of updated employees, or a structure of invalid validations "__invalid" belonging to employee(s).
 
+* **Version History:**
+
+	TASS v49.1 - Validations changed for `add1_text`, `city_text`, `state_text`, `post_code`, `country_text`, and `country_code` fields based on Single Touch Payroll
+
+    TASS v48.0 - Method Added
+
 * **Version:**
 
 	2
