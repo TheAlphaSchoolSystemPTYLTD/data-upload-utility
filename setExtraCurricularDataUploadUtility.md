@@ -52,53 +52,46 @@
 	"success": "You successfully saved 1 student(s).",
 	"ecactivity": [
 		{
-			"ecud10_text": "A",
-			"par_ack_flg": "Y",
-			"ecaud25_text": "A",
-			"act_year": 2018,
-			"act_code": "001",
-			"stud_ack_flg": "Y",
-			"ecaud10_flg": "A",
-			"ecaud14_code": "A",
-			"ecaud17_code": "A",
-			"COMPANYCODE": 10,
-			"ecaud6_flg": "A",
-			"ecaud7_flg": "A",
-			"com_text": "A",
-			"ecaud2_flg": "A",
-			"ecud2_code": "A",
-			"ecaud22_text": "A",
-			"ecaud11_code": "A",
-			"ecud5_code": "A",
-			"ecud8_text": "A",
-			"act_level": "01",
-			"ecaud3_flg": "A",
-			"ecaud8_flg": "A",
-			"ecaud24_text": "A",
-			"ecaud21_text": "A",
-			"id": "0010091",
-			"ecaud4_flg": "A",
-			"ecaud9_flg": "A",
-			"priority_flg": "N",
-			"ecud6_text": "A",
-			"ecaud13_code": "A",
-			"ecud9_text": "A",
-			"ecud3_code": "A",
-			"ecaud19_code": "A",
-			"ecaud16_code": "A",
-			"unit_num": 1,
-			"ecud1_code": "AAA",
-			"ecaud12_code": "A",
-			"ecaud15_code": "A",
-			"ecaud23_text": "A",
-			"ecud4_code": "A",
-			"stud_code": "0010091",
-			"ecaud5_flg": "A",
-			"ecaud18_code": "A",
-			"ecaud20_code": "A",
-			"act_sem": 1,
-			"ecaud1_flg": "A",
-			"ecud7_text": "A"
+			"id":"0009130",
+			"ecud1_code":"4",
+			"ecud2_code":"2",
+			"ecud3_code":"1",
+			"ecud4_code":"CA",
+			"ecud5_code":"OS",
+			"ecud6_text":"Successful",
+			"ecud7_text":"Needs Improvement",
+			"ecud8_text":"Successful",
+			"ecud9_text":"Failed",
+			"ecud10_text":"Needs Improvement",
+			"com_text":"This is a comment.",
+			"priority_flg":"N",
+			"stud_ack_flg":"Y",
+			"par_ack_flg":"Y",
+			"ecaud1_flg":"Y",
+			"ecaud2_flg":"Y",
+			"ecaud3_flg":"Y",
+			"ecaud4_flg":"Y",
+			"ecaud5_flg":"Y",
+			"ecaud6_flg":"Y",
+			"ecaud7_flg":"Y",
+			"ecaud8_flg":"Y",
+			"ecaud9_flg":"Y",
+			"ecaud10_flg":"Y",
+			"ecaud11_code":"01",
+			"ecaud12_code":"10",
+			"ecaud13_code":"L12",
+			"ecaud14_code":"T11",
+			"ecaud15_code":"A11",
+			"ecaud16_code":"B33",
+			"ecaud17_code":"C09",
+			"ecaud18_code":"88",
+			"ecaud19_code":"I5",
+			"ecaud20_code":"Z4",
+			"ecaud21_text":"Good ball skills",
+			"ecaud22_text":"Team player",
+			"ecaud23_text":"Attentive",
+			"ecaud24_text":"Good hand-eye coordination",
+			"ecaud25_text":"Good computer skills"
 		}
 	]
 	```
@@ -210,13 +203,6 @@
 	} 
 	```
 
-	`priority_flg` must be Y or N
-	```javascript
-	__invalid: {
-		"priority_flg": "priority_flg must be either Y or N"
-	} 
-	```
-
 	`stud_ack_flg` exceed 1 characters
 	```javascript
 	__invalid: {
@@ -224,24 +210,10 @@
 	} 
 	```
 
-	`stud_ack_flg` must be Y or N
-	```javascript
-	__invalid: {
-		"stud_ack_flg": "stud_ack_flg must be either Y or N"
-	} 
-	```
-
 	`par_ack_flg` exceed 1 characters
 	```javascript
 	__invalid: {
 		"par_ack_flg": "exceeds 1 characters."
-	} 
-	```
-
-	`par_ack_flg` must be Y or N
-	```javascript
-	__invalid: {
-		"par_ack_flg": "par_ack_flg must be either Y or N"
 	} 
 	```
 
@@ -265,6 +237,13 @@
 		"[field]": "[field] exceeds [field's length limit] characters."
 	} 
 	```
+	
+	`ecaud1_flg [string]` to `ecaud10_flg [string]` is not alphanumeric
+	```javascript
+	__invalid: {
+		"[field]": "Value is not a valid alphanumeric code."
+	} 
+	```
 
 	`ecaud11_code [string]` to `ecaud20_code [string]` exceed 3 characters
 	```javascript
@@ -283,7 +262,7 @@
 * **Sample Parameters:**
 
 	```javascript
-	{
+		{
 		"act_code":"001",
 		"act_year":"2018",
 		"act_level":"01",
@@ -292,46 +271,46 @@
 		"ecactivity":
 		[
 			{
-				"id":"0010091",
-				"ecud1_code":"AAAA",
-				"ecud2_code":"A",
-				"ecud3_code":"A",
-				"ecud4_code":"A",
-				"ecud5_code":"A",
-				"ecud6_text":"A",
-				"ecud7_text":"A",
-				"ecud8_text":"A",
-				"ecud9_text":"A",
-				"ecud10_text":"A",
-				"com_text":"A",
+				"id":"0009130",
+				"ecud1_code":"4",
+				"ecud2_code":"2",
+				"ecud3_code":"1",
+				"ecud4_code":"CA",
+				"ecud5_code":"OS",
+				"ecud6_text":"Successful",
+				"ecud7_text":"Needs Improvement",
+				"ecud8_text":"Successful",
+				"ecud9_text":"Failed",
+				"ecud10_text":"Needs Improvement",
+				"com_text":"This is a comment.",
 				"priority_flg":"N",
 				"stud_ack_flg":"Y",
 				"par_ack_flg":"Y",
-				"ecaud1_flg":"A",
-				"ecaud2_flg":"A",
-				"ecaud3_flg":"A",
-				"ecaud4_flg":"A",
-				"ecaud5_flg":"A",
-				"ecaud6_flg":"A",
-				"ecaud7_flg":"A",
-				"ecaud8_flg":"A",
-				"ecaud9_flg":"A",
-				"ecaud10_flg":"A",
-				"ecaud11_code":"A",
-				"ecaud12_code":"A",
-				"ecaud13_code":"A",
-				"ecaud14_code":"A",
-				"ecaud15_code":"A",
-				"ecaud16_code":"A",
-				"ecaud17_code":"A",
-				"ecaud18_code":"A",
-				"ecaud19_code":"A",
-				"ecaud20_code":"A",
-				"ecaud21_text":"A",
-				"ecaud22_text":"A",
-				"ecaud23_text":"A",
-				"ecaud24_text":"A",
-				"ecaud25_text":"A"
+				"ecaud1_flg":"Y",
+				"ecaud2_flg":"Y",
+				"ecaud3_flg":"Y",
+				"ecaud4_flg":"Y",
+				"ecaud5_flg":"Y",
+				"ecaud6_flg":"Y",
+				"ecaud7_flg":"Y",
+				"ecaud8_flg":"Y",
+				"ecaud9_flg":"Y",
+				"ecaud10_flg":"Y",
+				"ecaud11_code":"01",
+				"ecaud12_code":"10",
+				"ecaud13_code":"L12",
+				"ecaud14_code":"T11",
+				"ecaud15_code":"A11",
+				"ecaud16_code":"B33",
+				"ecaud17_code":"C09",
+				"ecaud18_code":"88",
+				"ecaud19_code":"I5",
+				"ecaud20_code":"Z4",
+				"ecaud21_text":"Good ball skills",
+				"ecaud22_text":"Team player",
+				"ecaud23_text":"Attentive",
+				"ecaud24_text":"Good hand-eye coordination",
+				"ecaud25_text":"Good computer skills"
 			}
 		]
 	}
@@ -340,7 +319,7 @@
 * **Sample GET:** (With URL Encoded `token`)
 
 	```HTML
-	http://api.tasscloud.com.au/tassweb/api/?method=setExtraCurricularDataUploadUtility&appcode=DEMOAP&company=10&v=2&token=BJVvYXC0We4Dtvp6Q49RqhBeAi6uqpTQ9t%2FKI9ZAFpCMeVXIFlDU5yNQIeYME%2BYLXgYA69RTUjXjLeVBetN6CaFMdPCKMWBXD%2Bkkt0%2Fuht0suYrSDONP6mx%2Fbt4WGgNOD5YoIYRNiIVDw2Qn2Oi5YodaEUgtGJohUJMzy3tqsX%2BraZk3j7d77okDCjb7MeFJ0DcupqUoRiGjE39415HTfPgNc6R6BY9wt7SJsj4yOPBrIxHQVS8Yy6gZ3nZgsJ5rhcdkB6eCI6b3FJ31s6vsVcbVu5NBY8AF1qqjWLMazduISzEBwRDsofXfJjo1KLX59R410bmbrF5Z7QZfEfE%2FlettTWOyb4EgdhBoC3v0aLOfF6Bt12AFXDo2VGbgryceeOLAscp%2FFr9ttH42hClBtWsxFU1N5dDENUsVHOwWcfCxd7aTtc0xjvaEYJWcZrRRZa1yrIvgeWaDk0LVxM5ePcT%2BltdrymgmxmZYgxdiYC1qQDcNXDx9hN7yKeZDUztwGA0yl2iXW8aBXAy5hRnztR0TrREyOba26mUHxUJO7tfpIyOrpPbE0nR18vtCZ%2BinbvyqN9adpZhQPByG2XD9M6MoYdmBCc3Duv9qb%2BIa0A8%3D
+	http://api.tasscloud.com.au/tassweb/api/?method=setExtraCurricularDataUploadUtility&appcode=UPLOAD&company=10&v=2&token=BJVvYXC0We4Dtvp6Q49RqhBeAi6uqpTQ9t%2FKI9ZAFpCMeVXIFlDU5yNQIeYME%2BYLXgYA69RTUjXjLeVBetN6CaFMdPCKMWBXD%2Bkkt0%2Fuht0suYrSDONP6mx%2Fbt4WGgNOD5YoIYRNiIVDw2Qn2Oi5YodaEUgtGJohUJMzy3tqsX%2BraZk3j7d77okDCjb7MeFJ0DcupqUoRiGjE39415HTfPgNc6R6BY9wt7SJsj4yOPBrIxHQVS8Yy6gZ3nZgsJ5rhcdkB6eCI6b3FJ31s6vsVcbVu5NBY8AF1qqjWLMazduISzEBwRDsofXfJjo1KLX59R410bmbrF5Z7QZfEfE%2FlettTWOyb4EgdhBoC3v0aLOfF6Bt12AFXDo2VGbgryceeOLAscp%2FFr9ttH42hClBtWsxFU1N5dDENUsVHOwWcfCxd7aTtc0xjvaEYJWcZrRRZa1yrIvgeWaDk0LVxM5ePcT%2BltdrymgmxmZYgxdiYC1qQDcNXDx9hN7yKeZDUztwGA0yl2iXW8aBXAy5hRnztR0TrREyOba26mUHxUJO7tfpIyOrpPbE0nR18vtCZ%2BinbvyqN9adpZhQPByG2XD9M6MoYdmBCc3Duv9qb%2BIa0A8%3D
 	```
 	
 * **Sample POST:**
