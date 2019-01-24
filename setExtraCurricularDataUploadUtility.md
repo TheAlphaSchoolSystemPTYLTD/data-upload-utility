@@ -217,14 +217,14 @@
 	} 
 	```
 
-	`ecud1_code [string]` to `ecaud5_code [string]` exceed 3 character
+	`ecud1_code [string]` to `ecud5_code [string]` exceed 3 character
 	```javascript
 	__invalid: {
 		"[field]": "[field] exceeds [field's length limit] characters."
 	} 
 	```
 
-	`ecud6_text [string]` to `ecaud10_text [string]` exceed 20 characters
+	`ecud6_text [string]` to `ecud10_text [string]` exceed 20 characters
 	```javascript
 	__invalid: {
 		"[field]": "[field] exceeds [field's length limit] characters."
