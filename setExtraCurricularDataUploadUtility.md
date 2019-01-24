@@ -24,7 +24,7 @@
   
 	`act_sem [string]` - Activity Semester
 
-	**Optional:**
+	**Optional (require one or more optional field(s)):**
   
 	`unit_num [smallint]` - unit number
   
