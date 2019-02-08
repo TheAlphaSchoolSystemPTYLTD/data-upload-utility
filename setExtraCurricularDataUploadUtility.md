@@ -136,7 +136,7 @@
 	`act_code` length less than 1
 	```javascript
 	__invalid: {
-		"surname": "field is required."
+		"act_code": "field is required."
 	}
 	```
 
