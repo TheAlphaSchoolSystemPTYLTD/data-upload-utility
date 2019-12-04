@@ -1,6 +1,10 @@
 **setStudentDataUploadUtility**
 ----
 	Returns "success" and a count of updated students, or a structure of invalid validations "__invalid" belonging to student(s).
+  
+* **Version History:**
+
+    TASS v52.0 - Add 3 new fields `first_name`, `other_name`, and `preferred_surname`. `given_name` is now a conditional field that accepts 101 characters.
 
 * **Version:**
 
@@ -18,7 +22,15 @@
 
 	`id [string]` - Student Code
 
+	`surname [string]` - Surname. If supplied, length must be between 1 and 30 Characters
+
+	`preferred_name [string]` - Preferred Name. If supplied, length must be between 1 and 20 Characters
+
 	**Optional:**
+
+	`other_name [string]` - Other Name.
+
+	`preferred_surname [string]` - Preferred Surname (use surname if not supplied).
 	
 	`usi [alphanumeric]` - USI (No spaces or special chars)
 
@@ -60,15 +72,13 @@
 
 	**Conditional:**
 
-	`surname [string]` - Surname. If supplied, length must be between 1 and 30 Characters
-
-	`given_name [string]` - Given Name. If supplied, length must be between 1 and 30 Characters
-
-	`preferred_name [string]` - Preferred Name. If supplied, length must be between 1 and 20 Characters
-
 	`mob_phone [string]` - Mobile Phone. Required if sms_flg is present.
 
 	`sms_flg [string]` - SMS Flag (Y or N) Required if mob_phone is present. If supplied, length must be 1.
+
+	`given_name [string]` - Given Names (invalid when `first_name` supplied, required when not supplied). If supplied, length must be between 1 and 101 Characters.
+
+	`first_name [string]` - First Name (invalid when `given_name` supplied, required when not supplied).
 
 
 * **Success Response:**
@@ -159,13 +169,6 @@
 	}
 	```
 
-	`given_name` length less than 1
-	```javascript
-	__invalid: {
-		"given_name": "given_name is required"
-	}
-	```
-
 	`preferred_name` length less than 1
 	```javascript
 	__invalid: {
@@ -187,10 +190,10 @@
 	} 
 	```
 
-	`given_name` exceed 30 characters
+	`given_name` exceed 101 characters
 	```javascript
 	__invalid: {
-		"given_name": "The value for this field exceeds the length permitted (NN of 30)."
+		"given_name": "The value for this field exceeds the length permitted (NN of 101)."
 	} 
 	```
 
@@ -416,6 +419,20 @@
 	__invalid: {
 		"[field]": "The value for this field exceeds the length permitted (NN of 20)."
 	} 
+	```
+
+	`given_name` and `first_name` not supplied
+	```javascript
+	__invalid: {
+		"given_name": "given_name required when first_name not supplied."
+	}
+	```
+
+	`given_name` and `first_name` both supplied
+	```javascript
+	__invalid: {
+		"given_name": "given_name invalid when first_name supplied."
+	}
 	```
 
 * **Sample Parameters:**
