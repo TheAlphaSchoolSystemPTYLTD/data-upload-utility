@@ -22,11 +22,11 @@
 
 	`id [string]` - Student Code
 
+	**Optional:**
+
 	`surname [string]` - Surname. If supplied, length must be between 1 and 30 Characters
 
 	`preferred_name [string]` - Preferred Name. If supplied, length must be between 1 and 20 Characters
-
-	**Optional:**
 
 	`other_name [string]` - Other Name.
 
@@ -39,6 +39,8 @@
 	`form_cls [alphanumeric]` - Form Class (No spaces or special chars)
 
 	`fte [decimal (1,2)]` - FTE (Range 0.00 to 1.00 only)
+
+	`gender [string]` - Gender (Must be an existing Gender)
 
 	`house [string]` - House (Must be an existing House)
 
@@ -70,15 +72,19 @@
 
 	`ceider [string]` - Ceider
 
+	`distance_ed [string]` - Distance_ed (Y or N). If supplied, length must be 1.
+
+	`ffpos [string]` - FFPOS (Y or N). If supplied, length must be 1.
+
 	**Conditional:**
 
 	`mob_phone [string]` - Mobile Phone. Required if sms_flg is present.
 
 	`sms_flg [string]` - SMS Flag (Y or N) Required if mob_phone is present. If supplied, length must be 1.
 
-	`given_name [string]` - Given Names (invalid when `first_name` supplied, required when not supplied). If supplied, length must be between 1 and 101 Characters.
+	`given_name [string]` - Given Names (invalid when `first_name` supplied). If supplied, length must be between 1 and 101 Characters.
 
-	`first_name [string]` - First Name (invalid when `given_name` supplied, required when not supplied).
+	`first_name [string]` - First Name (invalid when `given_name` supplied).
 
 
 * **Success Response:**
@@ -162,20 +168,6 @@
 	}
 	```
 
-	`surname` length less than 1
-	```javascript
-	__invalid: {
-		"surname": "surname is required"
-	}
-	```
-
-	`preferred_name` length less than 1
-	```javascript
-	__invalid: {
-		"preferred_name": "preferred_name is required"
-	}
-	```
-
 	`id` not a valid student code
 	```javascript
 	__invalid: {
@@ -186,28 +178,28 @@
 	`surname` exceed 30 characters
 	```javascript
 	__invalid: {
-		"surname": "The value for this field exceeds the length permitted (NN of 30)."
+		"surname": "exceed 30 characters."
 	} 
 	```
 
 	`given_name` exceed 101 characters
 	```javascript
 	__invalid: {
-		"given_name": "The value for this field exceeds the length permitted (NN of 101)."
+		"given_name": "exceed 101 characters."
 	} 
 	```
 
 	`preferred_name` exceed 20 characters
 	```javascript
 	__invalid: {
-		"preferred_name": "The value for this field exceeds the length permitted (NN of 20)."
+		"preferred_name": "exceed 20 characters."
 	} 
 	```
 
 	`usi` exceed 10 characters
 	```javascript
 	__invalid: {
-		"usi": "The value for this field exceeds the length permitted (NN of 10)."
+		"usi": "exceed 10 characters."
 	} 
 	```
 
@@ -221,7 +213,7 @@
 	`alt_id` exceed 40 characters
 	```javascript
 	__invalid: {
-		"alt_id": "The value for this field exceeds the length permitted (NN of 40)."
+		"alt_id": "exceed 40 characters."
 	} 
 	```
 
@@ -235,7 +227,7 @@
 	`form_cls` exceed 1 characters
 	```javascript
 	__invalid: {
-		"form_cls": "The value for this field exceeds the length permitted (NN of 1)."
+		"form_cls": "exceed 1 characters."
 	} 
 	```
 
@@ -246,10 +238,24 @@
 	} 
 	```
 
+	`gender` exceed 3 characters
+	```javascript
+	__invalid: {
+		"gender": "exceeds 3 characters."
+	} 
+	```
+
+	`gender` does not exist in the database
+	```javascript
+	__invalid: {
+		"gender": "gender does not exist"
+	} 
+	```
+
 	`house` exceed 2 characters
 	```javascript
 	__invalid: {
-		"house": "The value for this field exceeds the length permitted (NN of 2)."
+		"house": "exceed 2 characters."
 	} 
 	```
 
@@ -263,7 +269,7 @@
 	`religion` exceed 2 characters
 	```javascript
 	__invalid: {
-		"religion": "The value for this field exceeds the length permitted (NN of 2)."
+		"religion": "exceed 2 characters."
 	} 
 	```
 
@@ -277,7 +283,7 @@
 	`pctut_grp` exceed 5 characters
 	```javascript
 	__invalid: {
-		"pctut_grp": "The value for this field exceeds the length permitted (NN of 5)."
+		"pctut_grp": "exceed 5 characters."
 	} 
 	```
 
@@ -291,7 +297,7 @@
 	`campus_code` exceed 3 characters
 	```javascript
 	__invalid: {
-		"campus_code": "The value for this field exceeds the length permitted (NN of 3)."
+		"campus_code": "exceed 3 characters."
 	} 
 	```
 
@@ -305,7 +311,7 @@
 	`prev_school` exceed 5 characters
 	```javascript
 	__invalid: {
-		"prev_school": "The value for this field exceeds the length permitted (NN of 5)."
+		"prev_school": "exceed 5 characters."
 	} 
 	```
 
@@ -319,7 +325,7 @@
 	`e_mail` exceed 60 characters
 	```javascript
 	__invalid: {
-		"e_mail": "The value for this field exceeds the length permitted (NN of 60)."
+		"e_mail": "exceed 60 characters."
 	} 
 	```
 
@@ -333,7 +339,7 @@
 	`mob_phone` exceed 30 characters
 	```javascript
 	__invalid: {
-		"mob_phone": "The value for this field exceeds the length permitted (NN of 30)."
+		"mob_phone": "exceed 30 characters."
 	} 
 	```
 
@@ -347,7 +353,7 @@
 	`sms_flg` exceed 1 characters
 	```javascript
 	__invalid: {
-		"sms_flg": "The value for this field exceeds the length permitted (NN of 1)."
+		"sms_flg": "exceed 1 characters."
 	} 
 	```
 
@@ -361,21 +367,21 @@
 	`resident_sts` exceed 3 characters
 	```javascript
 	__invalid: {
-		"resident_sts": "The value for this field exceeds the length permitted (NN of 3)."
+		"resident_sts": "exceed 3 characters."
 	} 
 	```
 
 	`visa_subclass` exceed 6 characters
 	```javascript
 	__invalid: {
-		"visa_subclass": "The value for this field exceeds the length permitted (NN of 6)."
+		"visa_subclass": "exceed 6 characters."
 	} 
 	```
 
 	`ceider` exceed 9 characters
 	```javascript
 	__invalid: {
-		"ceider": "The value for this field exceeds the length permitted (NN of 9)."
+		"ceider": "exceed 9 characters."
 	} 
 	```
 
@@ -389,14 +395,14 @@
 	`sud1_flg [string]` to `sud10_flg [string]` exceed 1 character
 	```javascript
 	__invalid: {
-		"[field]": "The value for this field exceeds the length permitted (NN of 1)."
+		"[field]": "exceed 1 characters."
 	} 
 	```
 
 	`sud11_code [string]` to `sud20_code [string]` exceed 3 characters
 	```javascript
 	__invalid: {
-		"[field]": "The value for this field exceeds the length permitted (NN of 3)."
+		"[field]": "exceed 3 characters."
 	} 
 	```
 
@@ -410,14 +416,14 @@
 	`sud21_text [string]` to `sud25_text [string]` exceed 20 characters
 	```javascript
 	__invalid: {
-		"[field]": "The value for this field exceeds the length permitted (NN of 20)."
+		"[field]": "exceed 20 characters."
 	} 
 	```
 
 	`sud26_bill [string]` to `sud30_bill [string]` exceed 8 characters
 	```javascript
 	__invalid: {
-		"[field]": "The value for this field exceeds the length permitted (NN of 20)."
+		"[field]": "exceed 20 characters."
 	} 
 	```
 
@@ -433,6 +439,34 @@
 	__invalid: {
 		"given_name": "given_name invalid when first_name supplied."
 	}
+	```
+
+	`distance_ed` exceed 1 characters
+	```javascript
+	__invalid: {
+		"distance_ed": "exceed 1 characters."
+	} 
+	```
+
+	`distance_ed` must be Y or N
+	```javascript
+	__invalid: {
+		"distance_ed": "distance_ed must be either Y or N"
+	} 
+	```
+
+	`ffpos` exceed 1 characters
+	```javascript
+	__invalid: {
+		"ffpos": "exceed 1 characters."
+	} 
+	```
+
+	`ffpos` must be Y or N
+	```javascript
+	__invalid: {
+		"ffpos": "ffpos must be either Y or N"
+	} 
 	```
 
 * **Sample Parameters:**
