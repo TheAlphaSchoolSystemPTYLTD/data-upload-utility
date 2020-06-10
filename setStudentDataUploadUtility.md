@@ -40,7 +40,7 @@
 
 	`fte [decimal (1,2)]` - FTE (Range 0.00 to 1.00 only)
 
-	`gender [string]` - Gender (Must be an existing Gender)
+	`sex [string]` - Gender (Must be an existing Gender)
 
 	`house [string]` - House (Must be an existing House)
 
@@ -238,17 +238,17 @@
 	} 
 	```
 
-	`gender` exceed 3 characters
+	`sex` exceed 3 characters
 	```javascript
 	__invalid: {
-		"gender": "exceeds 3 characters."
+		"sex": "exceeds 3 characters."
 	} 
 	```
 
-	`gender` does not exist in the database
+	`sex` does not exist in the database
 	```javascript
 	__invalid: {
-		"gender": "gender does not exist"
+		"sex": "sex does not exist"
 	} 
 	```
 
