@@ -4,6 +4,8 @@
 
 * **Version History:**
 
+	TASS v53 - Added 2 new parameters `indig_status`, `main_activity`
+	
 	TASS v49.1 - Validations changed for `add1_text`, `city_text`, `state_text`, `post_code`, `country_text`, and `country_code` fields based on Single Touch Payroll
 
     TASS v48.0 - Method Added
@@ -104,6 +106,10 @@
 	`supervisor_code [string]` - Supervisor Code (Must be a valid employee code).  Required if supervisor2_code is present.
 
 	`supervisor2_code [string]` - Supervisor 2 Code (Must be a valid employee code).  Required if supervisor_code is present.
+	
+	`indig_status [string]` - Indigenous Status Code (Must be a valid Indigenous Status code).  Required if indig_status is present.
+	
+	`main_activity [string]` - Main Activity Code (Must be a valid Activity code).  Required if main_activity is present.
 
 
 * **Success Response:**
@@ -145,7 +151,9 @@
         "nok_country_text": "BEL",
         "mob_phone": "0400007725",
         "name_suffix": "CertBus",
-        "nok_relat_text": "Wife"
+        "nok_relat_text": "Wife",
+	"indig_status": "9",
+	"main_activity": "1100"
       }
     ]
 	```
@@ -627,6 +635,19 @@
 		"sms_flg": "sms_flg must be either Y or N"
 	} 
 	```
+	
+	`indig_status` exceed 1 characters
+	```javascript
+	__invalid: {
+		"indig_status": "exceeds 1 characters."
+	}
+	```
+		
+	`main_activity` exceed 4 characters
+	```javascript
+	__invalid: {
+		"main_activity": "exceeds 4 characters."
+	}
 
 * **Sample Parameters:**
 
@@ -664,7 +685,9 @@
 			"nok_country_text":"BEL",
 			"nok_phone_h_text":"0812345687",
 			"nok_phone_w_text":"0833669988",
-			"ceider":"ceid"
+			"ceider":"ceid".
+			"indig_status":"9",
+			"main_activity":"1100"
 		}
 	]
 	}
