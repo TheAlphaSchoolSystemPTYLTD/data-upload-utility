@@ -115,47 +115,56 @@
 * **Success Response:**
 
 	```javascript
-	"success": "You successfully saved 1 employee(s).",
-	"employees": [
-      {
-        "supervisor_code": 1000016,
-        "nok_city_text": "DEERAGUN",
-        "COMPANYCODE": 10,
-        "nok_phone_w_text": "0833669988",
-        "position_title": "Operations Manager of Queensland",
-        "supervisor2_code": 1000035,
-        "nok_add2_text": "11 Test Ave",
-        "position_text": "Operations",
-        "add2_text": "10 Test Ave",
-        "birth_date": "01/01/1984",
-        "driv_lic_text": 123456789,
-        "post_code": 4818,
-        "id": 1000088,
-        "nok_post_code": 8215,
-        "ISPAYROLLENABLED": "YES",
-        "country_text": "",
-        "state_text": "QLD",
-        "nok_name_text": "Jane Bloggs",
-        "ceider": "ceid",
-        "city_text": "TOWNSVILLE",
-        "emp_code": 1000088,
-        "add1_text": "Unit 1",
-        "phone_h_text": "0745786258",
-        "e_mail": "tester@example.com",
-        "marital_stat_flag": "F",
-        "nok_phone_h_text": "0812345687",
-        "nok_add1_text": "Unit 2",
-        "sms_flg": "Y",
-        "phone_w_text": "0722556698",
-        "nok_state_text": "WA",
-        "nok_country_text": "BEL",
-        "mob_phone": "0400007725",
-        "name_suffix": "CertBus",
-        "nok_relat_text": "Wife",
-	"indig_status": "9",
-	"main_activity": "1100"
-      }
-    ]
+	{
+		"success": "You successfully saved 1 employee(s).",
+		"__tassversion": "01.053.3.000",
+		"token": {
+			"employees": [
+					{
+						"supervisor_code": 1000016,
+						"nok_city_text": "DEERAGUN",
+						"COMPANYCODE": 10,
+						"nok_phone_w_text": "0833669988",
+						"position_title": "Operations Manager of Queensland",
+						"supervisor2_code": 1000035,
+						"nok_add2_text": "11 Test Ave",
+						"position_text": "Operations",
+						"add2_text": "10 Test Ave",
+						"birth_date": "01/01/1984",
+						"driv_lic_text": 123456789,
+						"post_code": 4818,
+						"id": 1000088,
+						"nok_post_code": 8215,
+						"ISPAYROLLENABLED": "YES",
+						"country_text": "",
+						"state_text": "QLD",
+						"nok_name_text": "Jane Bloggs",
+						"ceider": "ceid",
+						"city_text": "TOWNSVILLE",
+						"emp_code": 1000088,
+						"add1_text": "Unit 1",
+						"phone_h_text": "0745786258",
+						"e_mail": "tester@example.com",
+						"marital_stat_flag": "F",
+						"nok_phone_h_text": "0812345687",
+						"nok_add1_text": "Unit 2",
+						"sms_flg": "Y",
+						"phone_w_text": "0722556698",
+						"nok_state_text": "WA",
+						"nok_country_text": "BEL",
+						"mob_phone": "0400007725",
+						"name_suffix": "CertBus",
+						"nok_relat_text": "Wife",
+						"indig_status": "9",
+						"main_activity": "1100"
+					}
+			],
+			"timestamp": "{ts '2021-01-20 11:18:08'}",
+			"id": 1000088
+		}
+	}
+
+
 	```
  
 * **Error Response:**
