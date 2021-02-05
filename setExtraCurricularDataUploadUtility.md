@@ -49,51 +49,61 @@
 * **Success Response:**
 
 	```javascript
-	"success": "You successfully saved 1 student(s).",
-	"ecactivity": [
-		{
-			"id":"0009130",
-			"ecud1_code":"4",
-			"ecud2_code":"2",
-			"ecud3_code":"1",
-			"ecud4_code":"CA",
-			"ecud5_code":"OS",
-			"ecud6_text":"Successful",
-			"ecud7_text":"Needs Improvement",
-			"ecud8_text":"Successful",
-			"ecud9_text":"Failed",
-			"ecud10_text":"Needs Improvement",
-			"com_text":"This is a comment.",
-			"priority_flg":"N",
-			"stud_ack_flg":"Y",
-			"par_ack_flg":"Y",
-			"ecaud1_flg":"Y",
-			"ecaud2_flg":"Y",
-			"ecaud3_flg":"Y",
-			"ecaud4_flg":"Y",
-			"ecaud5_flg":"Y",
-			"ecaud6_flg":"Y",
-			"ecaud7_flg":"Y",
-			"ecaud8_flg":"Y",
-			"ecaud9_flg":"Y",
-			"ecaud10_flg":"Y",
-			"ecaud11_code":"01",
-			"ecaud12_code":"10",
-			"ecaud13_code":"L12",
-			"ecaud14_code":"T11",
-			"ecaud15_code":"A11",
-			"ecaud16_code":"B33",
-			"ecaud17_code":"C09",
-			"ecaud18_code":"88",
-			"ecaud19_code":"I5",
-			"ecaud20_code":"Z4",
-			"ecaud21_text":"Good ball skills",
-			"ecaud22_text":"Team player",
-			"ecaud23_text":"Attentive",
-			"ecaud24_text":"Good hand-eye coordination",
-			"ecaud25_text":"Good computer skills"
+	{
+		"success": "You successfully saved 1 student(s).",
+		"__tassversion": "01.053.3.000",
+		"token": {
+			"act_year": 2018,
+			"act_code": "001",
+			"timestamp": "{ts '2021-01-20 11:34:52'}",
+			"act_sem": 1,
+			"id": "0009130",
+			"ecactivity": [
+					{
+						"id":"0009130",
+						"ecud1_code":"4",
+						"ecud2_code":"2",
+						"ecud3_code":"1",
+						"ecud4_code":"CA",
+						"ecud5_code":"OS",
+						"ecud6_text":"Successful",
+						"ecud7_text":"Needs Improvement",
+						"ecud8_text":"Successful",
+						"ecud9_text":"Failed",
+						"ecud10_text":"Needs Improvement",
+						"com_text":"This is a comment.",
+						"priority_flg":"N",
+						"stud_ack_flg":"Y",
+						"par_ack_flg":"Y",
+						"ecaud1_flg":"Y",
+						"ecaud2_flg":"Y",
+						"ecaud3_flg":"Y",
+						"ecaud4_flg":"Y",
+						"ecaud5_flg":"Y",
+						"ecaud6_flg":"Y",
+						"ecaud7_flg":"Y",
+						"ecaud8_flg":"Y",
+						"ecaud9_flg":"Y",
+						"ecaud10_flg":"Y",
+						"ecaud11_code":"01",
+						"ecaud12_code":"10",
+						"ecaud13_code":"L12",
+						"ecaud14_code":"T11",
+						"ecaud15_code":"A11",
+						"ecaud16_code":"B33",
+						"ecaud17_code":"C09",
+						"ecaud18_code":"88",
+						"ecaud19_code":"I5",
+						"ecaud20_code":"Z4",
+						"ecaud21_text":"Good ball skills",
+						"ecaud22_text":"Team player",
+						"ecaud23_text":"Attentive",
+						"ecaud24_text":"Good hand-eye",
+						"ecaud25_text":"Good computer skills"
+					}
+			]
 		}
-	]
+	}
 	```
  
 * **Error Response:**
@@ -262,12 +272,11 @@
 * **Sample Parameters:**
 
 	```javascript
-		{
+	{
 		"act_code":"001",
 		"act_year":"2018",
-		"act_level":"01",
 		"act_sem":"1",
-		"unit_num":"1",
+		"id":"0009130",
 		"ecactivity":
 		[
 			{
@@ -309,11 +318,11 @@
 				"ecaud21_text":"Good ball skills",
 				"ecaud22_text":"Team player",
 				"ecaud23_text":"Attentive",
-				"ecaud24_text":"Good hand-eye coordination",
+				"ecaud24_text":"Good hand-eye",
 				"ecaud25_text":"Good computer skills"
 			}
 		]
-	}
+	 }
 	```
 
 * **Sample GET:** (With URL Encoded `token`)
