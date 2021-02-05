@@ -43,21 +43,24 @@
 * **Success Response:**
 
 	```javascript
-	"success": "You successfully saved 1 student(s).",
-	"token": {
-		"timestamp": "{ts '2019-02-12 16:58:07'}",
-		"area_code": 1,
-		"studentudarea": [
-			{
+	{
+		"success": "You successfully saved 1 student(s).",
+		"__tassversion": "01.053.3.000",
+		"token": {
+			"timestamp": "{ts '2021-01-20 15:25:32'}",
+			"area_code": 1,
+			"studentudarea": [
+				{
 				"eud31_date": "2019-02-08",
 				"eud21_text": "testing",
 				"eud1_flg": "Y",
 				"eud11_code": 10,
 				"eud12_code": 890,
-				"eud41_attach_id": "C5141223-DE66-686C-AC6701EAF7CE800F",
+				"eud41_attach_id": "2E8D1BA8-0B17-629A-3EFAFB4DA9961AEA",
 				"id": "0010090"
-			}
-		]
+				}
+			]
+		}
 	}
 	```
  
