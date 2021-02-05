@@ -84,37 +84,43 @@
 * **Success Response:**
 
 	```javascript
-	"success": "You successfully saved 1 student(s).",
-	"students": [
-      {
-        "resident_sts": "PR",
-        "sud28_bill": "My bill",
-        "alt_id": "001125",
-        "sud4_flg": "N",
-        "pctut_grp": "ABC",
-        "preferred_name": "Eli",
-        "id": "0010091",
-        "house": "BA",
-        "surname": "Bailey-Farrell",
-        "given_name": "Elias Isaak",
-        "ceider": "DIDE",
-        "usi": 1009110,
-        "sud11_code": "ORG",
-        "e_mail": "example@tassweb.com.au",
-        "date_arrival": "02/07/2014",
-        "sud22_text": "001256",
-        "campus_code": "SE",
-        "sms_flg": "N",
-        "stud_code": "0010091",
-        "religion": "LU",
-        "visa_subclass": "subvis",
-        "fte": 0.8,
-        "prev_school": "STJ",
-        "form_cls": "B",
-        "mob_phone": "0400000097",
-        "visa_expiry": "01/8/2019"
-      }
-    ]
+	{
+		"success": "You successfully saved 1 student(s).",
+		"__tassversion": "01.053.3.000",
+		"token": {
+			"timestamp": "{ts '2021-01-20 15:11:32'}",
+			"students": [
+					{
+						"resident_sts": "PR",
+						"sud28_bill": "My bill",
+						"alt_id": "001125",
+						"sud4_flg": "N",
+						"pctut_grp": "ABC",
+						"preferred_name": "Eli",
+						"id": "0010091",
+						"house": "BA",
+						"surname": "Bailey-Farrell",
+						"given_name": "Elias Isaak",
+						"ceider": "DIDE",
+						"usi": 1009110,
+						"sud11_code": "ORG",
+						"e_mail": "example@tassweb.com.au",
+						"date_arrival": "02/07/2014",
+						"sud22_text": "001256",
+						"campus_code": "SE",
+						"sms_flg": "N",
+						"stud_code": "0010091",
+						"religion": "LU",
+						"visa_subclass": "subvis",
+						"fte": 0.8,
+						"prev_school": "STJ",
+						"form_cls": "B",
+						"mob_phone": "0400000097",
+						"visa_expiry": "01/8/2019"
+					}
+			]
+		}
+	}	
 	```
  
 * **Error Response:**
