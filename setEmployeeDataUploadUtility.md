@@ -694,7 +694,7 @@
 			"nok_country_text":"BEL",
 			"nok_phone_h_text":"0812345687",
 			"nok_phone_w_text":"0833669988",
-			"ceider":"ceid".
+			"ceider":"ceid",
 			"indig_status":"9",
 			"main_activity":"1100"
 		}
