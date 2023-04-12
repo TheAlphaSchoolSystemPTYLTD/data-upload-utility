@@ -4,6 +4,8 @@
 
 * **Version History:**
 
+	TASS v58.5 - update `school_email` to be accepted if employee is also a teacher, teacher `e_mail` will get updated in the mean time to be in sync.
+
 	TASS v53 - Added 2 new parameters `indig_status`, `main_activity`
 	
 	TASS v49.1 - Validations changed for `add1_text`, `city_text`, `state_text`, `post_code`, `country_text`, and `country_code` fields based on Single Touch Payroll
@@ -34,7 +36,7 @@
 
 	`position_title [string]` - Position Title
 
-	`school_email [string]` - School Email (Non Teachers only)
+	`school_email [string]` - School Email
 
 	`marital_stat_flag [string]` - Marital Status Flag (Must be a valid Marital Status)
 
@@ -243,13 +245,6 @@
 	```javascript
 	__invalid: {
 		"school_email": "exceeds 60 characters."
-	}
-	```
-
-	`school_email` set for a Non Teacher
-	```javascript
-	__invalid: {
-		"school_email": "'school_email' is allowed for Non Teachers only"
 	}
 	```
 
