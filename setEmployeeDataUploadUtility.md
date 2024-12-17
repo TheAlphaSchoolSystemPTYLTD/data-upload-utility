@@ -4,13 +4,15 @@
 
 * **Version History:**
 
+	TASS v60.02 - allow updating of alternate id.
+
 	TASS v58.5 - update `school_email` to be accepted if employee is also a teacher, teacher `e_mail` will get updated in the mean time to be in sync.
 
 	TASS v53 - Added 2 new parameters `indig_status`, `main_activity`
 	
 	TASS v49.1 - Validations changed for `add1_text`, `city_text`, `state_text`, `post_code`, `country_text`, and `country_code` fields based on Single Touch Payroll
 
-    TASS v48.0 - Method Added
+	TASS v48.0 - Method Added
 
 * **Version:**
 
@@ -73,6 +75,8 @@
 	`nok_phone_w_text [string]` - Next of Kin Work Phone
 
 	`ceider [string]` - Ceider
+
+	`alt_id [string]` - Alternate id
 
 	**Conditional:**
 
@@ -158,7 +162,8 @@
 						"name_suffix": "CertBus",
 						"nok_relat_text": "Wife",
 						"indig_status": "9",
-						"main_activity": "1100"
+						"main_activity": "1100",
+ 						"alt_id": ""
 					}
 			],
 			"timestamp": "{ts '2021-01-20 11:18:08'}",
@@ -652,7 +657,22 @@
 	__invalid: {
 		"main_activity": "exceeds 4 characters."
 	}
+	```
 
+	`alt_id` exceed 40 characters
+	```javascript
+	__invalid: {
+		"alt_id": "exceeds 40 characters."
+	}
+	```
+
+	`alt_id` must be unique
+	```javascript
+	__invalid: {
+		"alt_id": "must be unique."
+	}
+	```
+  
 * **Sample Parameters:**
 
 	```javascript
@@ -691,7 +711,8 @@
 			"nok_phone_w_text":"0833669988",
 			"ceider":"ceid",
 			"indig_status":"9",
-			"main_activity":"1100"
+			"main_activity":"1100",
+			"alt_id":"ABC"
 		}
 	]
 	}
